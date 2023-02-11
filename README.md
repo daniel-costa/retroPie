@@ -10,11 +10,6 @@
 - JSAUX Mini HDMI to HDMI Cable 3FT, [Aluminum Shell, Braided] High Speed 4K 60Hz HDMI 2.0 Cord, Compatible with Camera, Camcorder, Tablet and Graphics/Video Card, Laptop, Raspberry Pi Zero W -Grey… https://a.co/d/bviJpxo
 - Power supply: https://www.digikey.com/en/products/detail/raspberry-pi/RPI-USB-C-POWER-SUPPLY-BLACK-AUS/10258763?src=raspberrypi
 
-### Notes: 
-- The listed monitor can be powered from Pi. Single source makes it easy and it can be used in the car.
-- Monitor also comes with an HDMI cable that should work
-- Case comes with a fan and heatsinks, but not thermal paste. Overkill, but shows them what they need to do for real PCs
-
 ### Steps:
 1. Check all required parts are available
 	- SD card reader
