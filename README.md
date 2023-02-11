@@ -24,7 +24,7 @@
 	- Monitor and cables
 	- Game controller
 2. Prepare SD  card
-	1. Install Raspberry Pi Imager
+	1. Install [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
 	2. Flash card with RetroPi image
 		- Choose RetroPi for the Pi 4 as the OS
 		- Choose SD card as the installation location
