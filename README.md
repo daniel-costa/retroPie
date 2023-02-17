@@ -1,86 +1,209 @@
 # retroPi
 
 ### Parts:
-- Raspberry SC15184 Pi 4 Model B 2019 Quad Core 64 Bit WiFi Bluetooth (2GB) https://a.co/d/9vqdlMV
-- Logitech K400 Plus Wireless Touch TV Keyboard With Easy Media Control and Built-in Touchpad, HTPC Keyboard for PC-connected TV, Windows, Android, Chrome OS, Laptop, Tablet - Black https://a.co/d/eNKBeEi
-- GeeekPi Raspberry Pi 4 Case, Raspberry Pi 4 Case with Cooling Fan, Raspberry Pi 4 Heatsink, Retro Gaming Nes4Pi Case for Raspberry Pi 4 Model B/4B https://a.co/d/21P8Awb
-- LESOWN 7 inch Monitor IPS Mini LCD Display Second Screen 1024x600 HDMI Small Portable Computer Monitor with Dual Speakers Audio Jack Metal Case https://a.co/d/aM4b5PF
-- SanDisk 64GB Ultra microSDXC UHS-I Memory Card with Adapter - Up to 140MB/s, C10, U1, Full HD, A1, MicroSD Card - SDSQUAB-064G-GN6MA https://a.co/d/3vjeQkB
-- MoKo Phone/Tablet Stand, Foldable Tablet Holder Compatible with iPhone 13 Pro Max/13 Pro/13, iPhone 12/12 pro Max/11/Xs Max, iPad Pro 11, iPad Air 4/Mini 6 2021, iPad 9th 10.2", Black https://a.co/d/0fE70XK
-- JSAUX Mini HDMI to HDMI Cable 3FT, [Aluminum Shell, Braided] High Speed 4K 60Hz HDMI 2.0 Cord, Compatible with Camera, Camcorder, Tablet and Graphics/Video Card, Laptop, Raspberry Pi Zero W -Grey… https://a.co/d/bviJpxo
-- Power supply: https://www.digikey.com/en/products/detail/raspberry-pi/RPI-USB-C-POWER-SUPPLY-BLACK-AUS/10258763?src=raspberrypi
+- [Raspberry SC15184 Pi 4 Model B (2GB)](https://a.co/d/9vqdlMV)
+- [Logitech K400 Plus Wireless Touch TV Keyboard](https://a.co/d/eNKBeEi)
+- [GeeekPi Raspberry Pi 4 Case with Cooling Fan and Heatsinks](https://a.co/d/21P8Awb)
+- [LESOWN 7 inch Monitor with Speakers](https://a.co/d/aM4b5PF)
+- [SanDisk 64GB MicroSD Card](https://a.co/d/3vjeQkB)
+- [Monitor stand](https://www.amazon.com/dp/B08RNBRCSV)
+- [HDMI to micro HDMI cable](https://a.co/d/bviJpxo)
+- [Raspberry Pi 4 power supply](https://www.digikey.com/en/products/detail/raspberry-pi/RPI-USB-C-POWER-SUPPLY-BLACK-AUS/10258763?src=raspberrypi)
+
 
 ### Steps:
 1. Check all required parts are available
 	- SD card reader
-	- Pi SD card
-	- Pi board, power supply, and case
-	- Keyboard and mouse
+	- SD card
+	- Raspberry Pi board, power supply, and case
+	- Keyboard / mouse
 	- Monitor and cables
-	- Game controller
-2. Prepare SD  card
-	1. Install [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
-	2. Flash card with RetroPi image
-		- Choose RetroPi for the Pi 4 as the OS
-		- Choose SD card as the installation location
-3. Assemble hardware (see case instructions)
-	1. Apply thermal stickers to Pi chips, install heatsinks
-	2. Put Pi in case, screw in screws (similar to wood screws, not bolts. They can be hard to screw in, be careful)
-	3. Wire fan into GPIO 
-4. Initial Pi setup
-	1. Insert SD card
+	- Game controller and cable
+2. Flash the SD  card so it can run RetroPie / EmulationStation
+	1. Insert the SD card into the computer
+	2. Install and launch [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+	3. Flash the SD card with the RetroPie image
+		1. Choose RetroPie for the Raspberry Pi 4 as the OS
+			- "Emulation and game OS"
+			- "RetroPie"
+			- "RetroPie 4.8 (RPI 4/400)"
+		2. Choose the SD card as the installation location
+		3. Click "Write"
+3. Assemble the hardware (see case instructions)
+	1. Apply thermal stickers to the heat sinks and install them on the Raspberry Pi chips
+	2. Screw the Raspberry Pi into the case (similar to wood screws, not bolts. They can be hard to screw in, be careful)
+	3. Wire the fan into the GPIO pins
+4. Initial Retro Pie auto-setup
+	1. Insert SD card into the Raspberry Pi
 	2. Connect monitor and keyboard/mouse
-	3. Boot the system by connecting the power
-	4. Wait
-5. System setup (some steps take a long time, do next steps simultaneously via SSH where possible)
-	1. Connect controller and setup mapping
-	2. Open RetroPie menu option
-	3. Raspi-config
-		1. Setup wifi (1=>S1)
-			1. Set to Australia
-			2. Enter SSID
-			3. Enter password
-		2. Fix display overscan (2=>D2=>No)
-		3. Enable SSH (3=>P2)
-		4. Set keyboard layout (5=>L3=>Generic 104-key PC (intl)=>Other=>English US=>English US=>Default=>No compose)
-		5. Finish
-		6. No reboot
-	4. RetroPie setup
-		1. Install desktop environment
-			1. Configuration / tools (C) => raspbiantools (219) => Install Pixel desktop environment
-			2. Configuration / tools (C) => raspbiantools (219) => Remove unneeded packages (audio will not be sent to HDMI otherwise)
-			3. Can be run using startx on command line or from the "Ports" console
-		2. Update menu controls
-			1. Manage packages (P) => Core (C) => emulationstation (205) => Configuration / options (C) => Swap A/B buttons (3)
-			2. Exit
-			3. Reconfigure controller (required after swapping A/B buttons)
-	5. Display setup / update
-		1. Exit emulationstation
-		2. nano /boot/config.txt
-			- hdmi_drive=2
-		3. sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade
-		4. sudo reboot now
-	6. Confirm
-		1. Screen is full size
-		2. Audio comes from both monitor and 3.5mm jack (see below for instructions on how to switch audio output)
-		3. Can launch desktop environment (Ports => Desktop or startx from command line)
-6. Emulator setup <need to write instructions for Windows> <Upload to GDrive and share the link, download in Pi desktop?> <Put them on a thumb drive and include setting up SSH?>
-	1. Open a terminal window
-		- Windows: Windows + r ==> "cmd"
-		- OSX / Linux: Terminal
-	2. Transfer BIOS
-		- NES, SNES, and N64 don't require BIOS
-		- From directory with BIOS:
-			- scp ./* pi@192.168.1.43:/home/pi/RetroPie/BIOS
-	3. Transfer games
-		- From directory with subdirectories  of nes, snes, n64, psx, etc:
-			- scp -r ./* pi@192.168.1.43:/home/pi/RetroPie/roms
-	4. Scrape artwork and details
-		1. Menu => Scraper =>  Scrape now => User decides on conflicts (off) => Start
-	5. Reboot
-	6. Test one game on each platform (launches, has audio, video is the right size, responds to controls, save games persist <just NES, Tetris?>)
-7. Optional: Setup Bluetooth connection (will affect how controllers can be used with Playstation)
-	1. Open RetroPie menu option
-	2. "Bluetooth"
-	3. <need to write instructions>
-8. Play
+	3. Connect controller
+	4. Boot the system by connecting the power
+	5. Wait for initial auto-setup
+5. Connect controller and setup mapping
+	- Hold any button on the controller to start mapping
+6. Open the "RetroPie" menu option so we can start setting up the system
+7. General system setup
+	1. Use the controller to select "Raspi-config", but you will need to use the keyboard for the below
+	2. Set the Wi-Fi country, we'll connect to Wi-Fi later
+		1. "System Options"
+		2. "Wireless LAN"
+		3. "Australia"
+		4. "Cancel"
+	3. Fix display underscan to remove black borders and use the full monitor
+		1. "Display Options"
+		2. "Underscan"
+		3. "No"
+		4. "Ok"
+	4. Enable SSH so we can access it remotely
+		1. "Interface Options"
+		2. "SSH"
+		3. "Yes"
+		4. "Ok"
+	5. Set keyboard layout to US because it defaults to UK 
+		1. "Localisation Options"
+		2. "Keyboard"
+		3. "Generic 105-Key PC (intl)"
+		4. "Other"
+		5. "English (US)"
+		6. "English (US)"
+		7. "The default for the keyboard layout"
+		8. "No compose key"
+	6. Exit back to EmulationStation
+		1. Select "Finish"
+		2. "No", **Don't** reboot yet
+8. Connect to Wi-Fi so we can download software when required
+	1. Select "WiFi"
+	2. "Connect to WiFi network"
+	3. Select the network from the list
+	4. Enter the password (either using the keyboard or the controller)
+	5. "OK", then wait
+	6. "Exit"
+9. Additional setup
+	1. Use the controller to select "RetroPie setup" (you can use the controller for the below)
+	2. Install a desktop environment so we can use the Raspberry Pi like a normal computer if we want to.
+		1. Start the installation
+			1. "Configuration / tools" (C)
+			2. "raspbiantools" (219)
+			3. "Install Pixel desktop environment"
+			4. "Yes"
+		2. Wait. **This can take a long time, anywhere from 5 to 40 mins**
+		3. Select "OK"
+		4. Remove software we don't need; otherwise, this can cause audio issues
+			- "Remove some unneeded packages"
+		5. "Cancel"
+	3. Update menu controls so "X" is enter and "O" is exit
+		1. "emulationstation" (205)
+		2. "Swap A/B buttons" (3)
+		3. "Ok"
+	4. Exit back to EmulationStation
+		1. "Cancel"
+		2. "Back"
+		3. "Exit"
+	5. Reconfigure controller (required after updating the menu controls)
+		1. Start
+		2. "Configure Input"
+10. Final setup tweaks
+	1. Exit EmulationStation
+		1. Start
+		2. "Quit"
+		3. "Quit EmulationStation"
+	2. Edit the configuration file so it always thinks the display has audio and video
+		1. `sudo nano /boot/config.txt`
+		2. Remove the "`#`" from "`#hdmi_drive=2`"
+		3. Exit and save: 
+			1. `Ctrl + x`
+			2. `y`
+			3. `Enter`
+	3. Add hotkey volume control for each controller so you can easily change the volume while playing
+		1. `cd ~/.config/retroarch/autoconfig`
+		2. For every controller configuration file here ending in `.cfg` (don't need to worry about the `.cfg.bak` files):
+			1. `sudo nano FILENAME.cfg`
+			2. Add these two lines 
+				- `input_volume_up_btn = "h0up"`
+				- `input_volume_down_btn = "h0down"`
+11. Make sure everything is fully up to date
+	1. Run the below update command
+		- `sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade`
+	2. Wait. **This can take a long time, anywhere from 5 to 25 mins**
+12. Reboot so changes take effect and things aren't as slow
+	- `sudo reboot now`
+13. Transfer the games and BIOS
+	1. Open desktop
+		1. "Ports"
+		2. "Desktop"
+	2. The USB drive and monitor take a lot of power. Temporarily power the monitor from a separate source like your laptop and disconnect the controller/s
+	3. Insert the USB drive into one of the blue USB ports (they're faster)
+	4. Open file manager when prompted
+	5. Open the BIOS folder and copy everything into:
+		-  "Home folder" ==> "RetroPie" ==> "BIOS"
+	6. Copy everything in the "roms" folder into 
+		-  "Home folder" ==> "RetroPie" ==> "roms"
+		- When prompted:
+			- "Apply this option to all existing files"
+			- "Overwrite"
+	7. Wait. **This can take a REALLY long time, anywhere from 15 to 70 mins**
+	8. When copying the files is finished, eject the USB drive
+14. Install Scratch (fun coding program)
+	1. Open a terminal window by clicking the black box in the top menu bar
+	2. Install Scratch
+		1. `sudo apt install scratch -y`
+	3. Scratch projects: 
+		1. https://projects.raspberrypi.org/en/pathways/scratch-intro
+		2. https://projects.raspberrypi.org/en/codeclub/
+15. Reboot so EmulationStation can find the new games
+	1. Open the start menu by clicking the raspberry in the top-left
+	2. "Shutdown"
+	3. "Reboot"
+16. Now that we have games, we can get  artwork and details for them
+	1. Start scraping for everything but "Ports" (scrapes "Desktop" as a "Desktop Dungeon" game)
+		1. Start
+		2. "Scraper"
+		3. "Scrape now"
+		4. "Filter"
+			1. "All games"
+			2. "Back"
+		5. "Systems"
+			1. Deselect "Ports"
+			2. "Back"
+		6. Set "User decides on conflicts" to "Off"
+		7. "Start"
+	2. Wait (this shouldn't take too long, about 5 mins)
+	3. Select "OK"
+	4. Close the menu
+17. Scraping isn't perfect, and we need to update some of the games
+	- How to manually update the scraped information:
+		1. Highlight the incorrectly-named game
+		2. Press the "Select" button
+		3. "Edit this game's metadata"
+		4. "Scrape"
+		5. Select the correct game
+		6. "Save"
+		7. Close the window
+	- Games that need to be manually changed:
+		- Nintendo 64
+			- Banjo to Kazooie No Daibouken ==> Banjo-Kazooie
+			- Blastdozer ==> Blast Corps
+			- Lylat Wars ==> Star Fox 64
+			- Star Wars: Teikoku No Kage ==> Star Wars: Shadows of the Empire
+		- SNES
+			- Super Donkey Kong ==> Donkey Kong Country
+			- Akumajo Dracula ==> Super Castlevania IV
+			- SMW2+ ==> Super Mario World 2: Yoshi's Island
+			- Panel De Pon ==> Tetris Attack
+		- Playstation
+			- Crash Bandicoot 2 - Cortex No Gyakushuu! ==> Crash Bandicoot 2: Cortex Strikes Back
+			- Oddworld: Abe's Exoddus ==> Oddworld - Abe's oddysee
+18. Add the "Last Played" collection so you can easily reopen what you were last playing
+	1. Start
+	2. "Game collection settings"
+	3. "Automatic game collections"
+	4. "Last played"
+19. Turn off vibration because it draws too much power and causes issues with the screen
+	1. Launch any Playstation game
+	2. Open RetroArch quick menu (Hotkey + Δ)
+	3. Open "Quick Menu" if not already open
+	4. "Options"
+	5. "Enable Vibration" ==> "Off"
+20. Clean up boxes, rubbish, etc.
+21. Play!
+
