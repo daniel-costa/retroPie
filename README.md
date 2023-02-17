@@ -1,5 +1,63 @@
 # RetroPie Emulator Gaming System
 
+## Quick Reference 
+
+### Hotkey actions
+
+| Action | Keys |
+| ------ | ---- |
+| Quit game | Hotkey + Start |
+| Reset game | Hotkey + X |
+| RetroArch menu (required for changing discs) | Hotkey + Δ |
+| Save to emulator save slot | Hotkey + R1 |
+| Load from emulator save slot | Hotkey + L1 |
+| Increase emulator save slot number | Hotkey + right |
+| Decrease emulator save slot number | Hotkey + left |
+| Volume up (must be configured first) | Hotkey + up |
+| Volume down (must be configured first) | Hotkey + down |
+
+### Changing discs
+
+1. Open RetroArch menu (Hotkey + Δ)
+2. Open "Quick Menu" if not already open
+3. "Disc Control" (near the bottom of the list)
+4. "Eject disc"
+5. "Load new disc"
+6. Select disc to load
+
+### Add volume control to a controller
+
+1. Exit EmulationStation
+	1. Start
+	2. "Quit"
+	3. "Quit EmulationStation"
+2. `cd ~/.config/retroarch/autoconfig`
+3. For every controller configuration file here ending in `.cfg` (don't need to worry about the `.cfg.bak` files):
+	1. `sudo nano FILENAME.cfg`
+	2. Add these two lines 
+		- `input_volume_up_btn = "h0up"`
+		- `input_volume_down_btn = "h0down"`
+
+## Controller Diagrams
+
+### NES (Nintendo Entertainment System)
+
+![NES Controller](./images/controller_nes.png?raw=true "NES Controller")
+
+### Super Nintendo Entertainment System (SNES)
+
+![SNES Controller](./images/controller_snes.png?raw=true "SNES Controller")
+
+### Nintendo 64
+
+![N64 Controller](./images/controller_n64.png?raw=true "N64 Controller")
+
+### Playstation
+
+![PSX Controller](./images/controller_psx.png?raw=true "PSX Controller")
+
+## Instructions
+
 ### Parts:
 - [Raspberry SC15184 Pi 4 Model B (2GB)](https://a.co/d/9vqdlMV)
 - [Logitech K400 Plus Wireless Touch TV Keyboard](https://a.co/d/eNKBeEi)
@@ -206,60 +264,3 @@
 	5. "Enable Vibration" ==> "Off"
 20. Clean up boxes, rubbish, etc.
 21. Play!
-
-
-# Quick Reference 
-
-### Hotkey actions
-
-| Action | Keys |
-| ------ | ---- |
-| Quit game | Hotkey + Start |
-| Reset game | Hotkey + X |
-| RetroArch menu (required for changing discs) | Hotkey + Δ |
-| Save to emulator save slot | Hotkey + R1 |
-| Load from emulator save slot | Hotkey + L1 |
-| Increase emulator save slot number | Hotkey + right |
-| Decrease emulator save slot number | Hotkey + left |
-| Volume up (must be configured first) | Hotkey + up |
-| Volume down (must be configured first) | Hotkey + down |
-
-### Changing discs
-
-1. Open RetroArch menu (Hotkey + Δ)
-2. Open "Quick Menu" if not already open
-3. "Disc Control" (near the bottom of the list)
-4. "Eject disc"
-5. "Load new disc"
-6. Select disc to load
-
-### Add volume control to a controller
-
-1. Exit EmulationStation
-	1. Start
-	2. "Quit"
-	3. "Quit EmulationStation"
-2. `cd ~/.config/retroarch/autoconfig`
-3. For every controller configuration file here ending in `.cfg` (don't need to worry about the `.cfg.bak` files):
-	1. `sudo nano FILENAME.cfg`
-	2. Add these two lines 
-		- `input_volume_up_btn = "h0up"`
-		- `input_volume_down_btn = "h0down"`
-
-# Controller Diagrams
-
-### NES (Nintendo Entertainment System)
-
-![NES Controller](./images/controller_nes.png?raw=true "NES Controller")
-
-### Super Nintendo Entertainment System (SNES)
-
-![SNES Controller](./images/controller_snes.png?raw=true "SNES Controller")
-
-### Nintendo 64
-
-![N64 Controller](./images/controller_n64.png?raw=true "N64 Controller")
-
-### Playstation
-
-![PSX Controller](./images/controller_psx.png?raw=true "PSX Controller")
