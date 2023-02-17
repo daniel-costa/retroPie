@@ -1,4 +1,4 @@
-# retroPi
+# RetroPie Emulator Gaming System
 
 ### Parts:
 - [Raspberry SC15184 Pi 4 Model B (2GB)](https://a.co/d/9vqdlMV)
