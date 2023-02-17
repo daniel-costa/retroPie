@@ -250,17 +250,16 @@
 
 ### NES (Nintendo Entertainment System)
 
-
+![NES Controller](./images/controller_nes.png?raw=true "NES Controller")
 
 ### Super Nintendo Entertainment System (SNES)
 
-
+![SNES Controller](./images/controller_snes.png?raw=true "SNES Controller")
 
 ### Nintendo 64
 
-
+![N64 Controller](./images/controller_n64.png?raw=true "N64 Controller")
 
 ### Playstation
 
-
-
+![PSX Controller](./images/controller_psx.png?raw=true "PSX Controller")
